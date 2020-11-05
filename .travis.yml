@@ -1,3 +1,6 @@
+arch:
+    - amd64
+    - ppc64le
 sudo: false
 language: node_js
 node_js:
@@ -5,5 +8,11 @@ node_js:
   - '10'
   - '8'
   - '6'
+matrix: 
+   allow_failures:
+    - node_js: '8'
+    - node_js: '6'
+   
+
 script: 'npm run test-travis'
 after_script: 'npm i codecov && codecov'
